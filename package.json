@@ -1,0 +1,24 @@
+{
+	"name": "react-native-template-fego",
+	"version": "0.0.1",
+	"description": "fego-rn下的模版项目",
+	"homepage": "http://fe.hhtcex.com",
+	"keywords": [
+		"fego",
+		"react",
+		"react native",
+		"react-native-template-fego"
+	],
+	"repository": {
+		"type": "git",
+		"url": "http://github.com/fegos/react-native-template-fego"
+	},
+	"bugs": {
+		"url": "http://github.com/fegos/react-native-template-fego/issues"
+	},
+	"files": [],
+	"license": "MIT",
+	"dependencies": {},
+	"devDependencies": {},
+	"scripts": {}
+}
