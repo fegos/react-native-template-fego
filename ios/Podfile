@@ -29,9 +29,9 @@ def mainPods
 	  
 end
 
-target 'miaow' do
+target 'fego' do
     mainPods
-    target 'miaowTests' do
+    target 'fegoTests' do
         inherit! :search_paths
         #     Pods for testing
     end

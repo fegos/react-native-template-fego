@@ -8,10 +8,10 @@ sed -i "" "/RCTActionSheet/d;/RCTGeolocation/d;/RCTAnimation/d;/RCTBlob/d;/RCTIm
 
 # sed -i "" "/\"react-native\":/d" package.json
 
-sed -i "" "s/miaow/$projectname/g" ios/Podfile
+sed -i "" "s/fego/$projectname/g" ios/Podfile
 sed -i "" "s/index.ios/index/g" ios/$projectname/AppDelegate.m
 
-sed -i "" "s/miaow/$projectname/g" index.js
+sed -i "" "s/fego/$projectname/g" index.js
 
 # android需要更改的配置
 sed -i '' '27a\'$'\n''\'$'\n''@Override\'$'\n''protected String getJSMainModuleName() {\'$'\n''return "index";\'$'\n''}'$'\n' android/app/src/main/java/com/$projectname/MainApplication.java

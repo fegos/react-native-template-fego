@@ -10,4 +10,4 @@ const App = props => {
 	// 确保AppInfo的信息正确
 	return <AppSetContainer />
 }
-AppRegistry.registerComponent('miaow', () => App);
+AppRegistry.registerComponent('fego', () => App);
