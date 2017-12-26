@@ -1,6 +1,6 @@
 {
 	"name": "react-native-template-fego",
-	"version": "0.0.3",
+	"version": "0.0.6",
 	"description": "fego-rn下的模版项目",
 	"private": false,
 	"homepage": "http://fe.hhtcex.com",
@@ -17,7 +17,6 @@
 	"bugs": {
 		"url": "http://github.com/fegos/react-native-template-fego/issues"
 	},
-	"files": [],
 	"license": "MIT",
 	"dependencies": {},
 	"devDependencies": {},
