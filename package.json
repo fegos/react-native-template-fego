@@ -3,7 +3,6 @@
 	"version": "0.0.6",
 	"description": "fego-rn下的模版项目",
 	"private": false,
-	"homepage": "http://fe.hhtcex.com",
 	"keywords": [
 		"fego",
 		"react",
