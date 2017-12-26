@@ -1,0 +1,30 @@
+{
+  "presets": ["react-native"],
+  "plugins": [
+	[
+		"babel-plugin-module-alias",
+		[
+			{
+				"src": "./js/src",
+				"expose": "src"
+			},
+			{
+				"src": "./js/src/common",
+				"expose": "common"
+			},
+			{
+				"src": "./js/src/trade",
+				"expose": "trade"
+			},
+			{
+				"src": "./js/src/user",
+				"expose": "user"
+			},
+			{
+				"src": "./js/lib/nsip-rn",
+				"expose": "nsip-rn"
+			},
+		]
+	]
+	]
+}

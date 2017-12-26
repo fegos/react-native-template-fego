@@ -2,6 +2,7 @@
 	"name": "react-native-template-fego",
 	"version": "0.0.1",
 	"description": "fego-rn下的模版项目",
+	"private": false,
 	"homepage": "http://fe.hhtcex.com",
 	"keywords": [
 		"fego",
