@@ -1,6 +1,6 @@
 import React from 'react'
 import { AppRegistry } from 'react-native'
-import { AppContainer } from 'nsip-rn'
+import { AppContainer } from 'fego-rn'
 
 const App = props => {
 	// 更新AppInfo后，再加载src下的模块

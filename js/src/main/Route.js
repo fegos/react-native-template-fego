@@ -3,7 +3,7 @@
  */
 import React from 'react'
 import { View } from 'react-native'
-import { Icon, Badge, Message } from 'nsip-rn'
+import { Icon, Badge, Message } from 'fego-rn'
 class TabIcon extends React.Component {
 	render() {
 		let { name, iconAttr, hasNew } = this.props;

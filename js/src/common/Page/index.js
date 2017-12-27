@@ -7,7 +7,7 @@
  */
 import React from 'react'
 import { AppState } from 'react-native'
-import { Message } from 'nsip-rn'
+import { Message } from 'fego-rn'
 import { NavigationActions } from 'react-navigation'
 import AppNav from '../AppNav'
 import merge from 'lodash/merge'

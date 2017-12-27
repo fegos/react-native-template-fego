@@ -1,4 +1,4 @@
-import { Message, Icon, Button } from 'nsip-rn'
+import { Message, Icon, Button } from 'fego-rn'
 import React from 'react'
 import { Const } from 'common'
 

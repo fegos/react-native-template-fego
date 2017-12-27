@@ -19,11 +19,7 @@
 			{
 				"src": "./js/src/user",
 				"expose": "user"
-			},
-			{
-				"src": "./js/lib/nsip-rn",
-				"expose": "nsip-rn"
-			},
+			}
 		]
 	]
 	]

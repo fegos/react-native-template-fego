@@ -5,7 +5,7 @@
  */
 import React from 'react'
 import AppNav from './index'
-import { Message } from 'nsip-rn'
+import { Message } from 'fego-rn'
 const NavDecorator = Navigator => props => {
 	AppNav.init && AppNav.init(Navigator);
 	return <Navigator

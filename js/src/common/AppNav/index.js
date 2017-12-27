@@ -4,7 +4,7 @@
  */
 import { NavigationActions, StateUtils, StackNavigator } from 'react-navigation'
 // import { Animated, Easing } from 'react-native'
-import { Message } from 'nsip-rn'
+import { Message } from 'fego-rn'
 import NavDecorator from './NavDecorator'
 import Tool from './Tool'
 let defaultConfig = {
