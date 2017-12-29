@@ -1,3 +1,6 @@
+projectname=$(basename $PWD)
+echo $projectname
+
 cat gitignore >> .gitignore; rm gitignore
 echo "+++++++++mod gitignore+++++++++"
 yarn add react-native-fetch-blob@0.10.8
@@ -9,6 +12,13 @@ rm app.json
 rm index.android.js
 rm index.ios.js
 echo "+++++++++remove files+++++++++"
+cd ios/
+rm $projectname/AppDelegate.h
+mv AppDelegate.h $projectname/AppDelegate.h
+rm $projectname/AppDelegate.m
+mv AppDelegate.m $projectname/AppDelegate.m
+echo "+++++++++mod AppDelegate+++++++++"
+cd ..
 chmod u+x ./tools/sed.sh
 ./tools/sed.sh
 echo "+++++++++modify files+++++++++"
