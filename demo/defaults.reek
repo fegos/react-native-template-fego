@@ -1,0 +1,15 @@
+---
+TooManyStatements:
+  enabled: true
+  max_statements: 20
+
+FeatureEnvy:
+  enabled: false
+  exclude:
+    - "get_parent_folder"
+
+DuplicateMethodCall:
+  exclude:
+  - get_parent_folder
+  - add_build_phase_file
+  - remove_build_phase_file

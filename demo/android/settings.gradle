@@ -1,0 +1,5 @@
+rootProject.name = 'demo'
+include ':fego-rn-update'
+project(':fego-rn-update').projectDir = new File(rootProject.projectDir, '../node_modules/fego-rn-update/android')
+
+include ':app'
