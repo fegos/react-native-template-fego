@@ -1,5 +1,5 @@
 {
-	"fego-rn-update": "^0.0.3",
+	"fego-rn-update": "^0.0.4",
 	"fego-rn": "^0.0.4",
 	"babel-plugin-module-alias": "^1.6.0",
 	"decimal.js": "^7.2.1",
