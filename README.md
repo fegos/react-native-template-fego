@@ -36,9 +36,9 @@ react-native 自定义[模版](https://github.com/facebook/react-native/commit/3
 	$ react-native run-android
 	```
 
-### fego-rn-update
+### 热更新：[fego-rn-update](https://github.com/fegos/fego-rn-update)
 
-### fego-rn
+### 组件库：[fego-rn](https://github.com/fegos/fego-rn)
 
 ### Contributing
 有任何疑问或建议，欢迎[Issues](https://github.com/fegos/react-native-template-fego/issues)。  
