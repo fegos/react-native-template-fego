@@ -1,6 +1,6 @@
 {
-	"fego-rn-update": "^0.0.4",
-	"fego-rn": "^0.0.4",
+	"fego-rn-update": "latest",
+	"fego-rn": "latest",
 	"babel-plugin-module-alias": "^1.6.0",
 	"decimal.js": "^7.2.1",
 	"moment-timezone": "^0.5.13",
