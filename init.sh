@@ -4,8 +4,16 @@ echo $projectname
 cat gitignore >> .gitignore; rm gitignore
 echo "+++++++++mod gitignore+++++++++"
 yarn add react-native-fetch-blob@0.10.8
-yarn add eslint@4.0.0 --dev
+yarn add eslint@^4.0.0 --dev
 yarn add eslint-plugin-react@7.1.0 --dev
+yarn add babel-eslint@8.0.2 --dev
+yarn add babel-jest@22.4.1 --dev
+yarn add babel-preset-react-native@4.0.0 --dev
+yarn add eslint@^4.16.0 --dev
+yarn add eslint-config-airbnb@^16.1.0 --dev
+yarn add eslint-plugin-import@^2.8.0 --dev
+yarn add eslint-plugin-jsx-a11y@^6.0.3 --dev
+yarn add eslint-plugin-react@^7.6.0 --dev
 echo "+++++++++dev+++++++++"
 rm App.js
 rm app.json
