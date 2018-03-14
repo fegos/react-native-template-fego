@@ -32,7 +32,7 @@ chmod u+x ./tools/sed.sh
 ruby tools/xcodeFileManager.rb ../ios $projectname add ip.txt
 ruby tools/xcodeFileManager.rb ../ios $projectname del Libraries
 ruby tools/xcodeFileManager.rb ../ios $projectname del $projectname/main.jsbundle
-ruby tools/xcodeFileManager.rb ../ios $projectname script SetIP  "ip=\$(ifconfig | grep 'inet 10.' | head -1 | cut -d \" \" -f 2)+--+echo \$ip+--+sed -i \"\" '1 c\\'$'\\n'\$ip\$'\\n' ip.txt" 0
+ruby tools/xcodeFileManager.rb ../ios $projectname script SetIP  "ip=\$(ifconfig | grep 'inet 10.' | head -1 | cut -d \" \" -f 2)+--+if [ ! -f ip.txt ]; then+--+touch ip.txt+--+ruby ../tools/xcodeFileManager.rb ../ios $projectname add ip.txt+--+fi+--+echo \$ip >ip.txt" 0
 echo "+++++++++modify files+++++++++"
 rm -r node_modules
 yarn install

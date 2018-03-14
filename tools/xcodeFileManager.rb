@@ -7,20 +7,23 @@ require 'pathname'
 # 用于向xcode中引入或者移除文件。特点：主要格式的文件(夹)基本都支持；不强制实际路径与xcode中的路径相同；递归引入文件夹，并且移除时会清除内容为空的gruop；支持添加shell script到build phase，并且可以指定序号，沿用ruby的规则,e.g.:0最前面，-1最后面
 # 引入文件(夹): 支持后缀为".h", ".m", ".mm", ".cpp"的源文件，支持引入资源文件，支持引入后缀为".a", ".framework", ".bundle", ".xcodeproj"的文件及文件夹。
 # 移除文件(夹): 暂未发现不支持的情况
-# 添加shell脚本: 脚本内容用引号包起来，$、\等字符用\转移。默认添加到build phase最后。
-# usage: 
-# add: ruby xcodeFileManager.rb 工程xcodeproj文件所在目录与本ruby脚本所在目录的相对路径 工程xcodeproj文件名 add 引入/移除文件(夹)在xcode中的路径 要引入的文件(夹)的真实路径与工程xcodeproj文件根目录的相对路径 引入文件的编译参数
+# 添加shell脚本: 脚本内容用引号包起来，$、\等字符用\转义，不同的行用+--+连接起来。默认添加到build phase最后。
+# usage:
+# add: ruby xcodeFileManager.rb(脚本名的相对路径) 工程xcodeproj文件所在目录相对本ruby脚本所在目录的相对路径 工程xcodeproj文件名 add 引入/移除文件(夹)在xcode中的路径 要引入的文件(夹)的真实路径与工程xcodeproj文件根目录的相对路径 引入文件的编译参数
 # 4个必备+2个可选参数 后两个参数顺序固定，可酌情为空或者使用占位符%s
-# del: ruby xcodeFileManager.rb 工程xcodeproj文件所在目录与本ruby脚本所在目录的相对路径 工程xcodeproj文件名 add 引入/移除文件(夹)在xcode中的路径
+# del: ruby xcodeFileManager.rb(脚本名的相对路径) 工程xcodeproj文件所在目录相对本ruby脚本所在目录的相对路径 工程xcodeproj文件名 add 引入/移除文件(夹)在xcode中的路径
 # 4个必备参数
-# script: ruby xcodeFileManager.rb 工程xcodeproj文件所在目录与本ruby脚本所在目录的相对路径 工程xcodeproj文件名 script shell脚本名称 shell脚本内容 脚本在build phase中的位置
+# script: ruby xcodeFileManager.rb(脚本名的相对路径) 工程xcodeproj文件所在目录相对本ruby脚本所在目录的相对路径 工程xcodeproj文件名 script shell脚本名称 shell脚本内容 脚本在build phase中的位置
 # 4个必备+2个可选参数
+
 # e.g.:
+# 本脚本和工程目录都不在当前目录的情况
+# ruby tools/xcodeFileManager.rb ../ios $projectname add ip.txt
+
+# 本脚本在当前目录，工程在ios文件夹中的情况
 # ruby xcodeFileManager.rb ios RnInit add songOut.m
 # ruby xcodeFileManager.rb ios RnInit add song
-# ruby xcodeFileManager.rb ios RnInit add RnInit/song.m song/song.m 
-# ruby xcodeFileManager.rb ios RnInit add song/songsong song/songsong 
-# ruby xcodeFileManager.rb ios RnInit add RnInit/song.m song/songsong/song.m
+# ruby xcodeFileManager.rb ios RnInit add RnInit/song.m song/song.m
 # ruby xcodeFileManager.rb ios RnInit add RnInit/song/songsong/songsong.m song/songsong/songsong.m
 # ruby xcodeFileManager.rb ios RnInit add songOut.m  %s  -fno-objc-arc
 # ruby xcodeFileManager.rb ios RnInit add Libraries/RCTActionSheet.xcodeproj  ../node_modules/react-native/Libraries/ActionSheetIOS/RCTActionSheet.xcodeproj
@@ -65,7 +68,7 @@ $project_root = File.expand_path(ARGV[0], get_parent_folder(ruby_path)) #工程�
 $project_path = ARGV[1]+".xcodeproj" #工程文件名(无后缀)
 $command = ARGV[2] #add/del
 
-if $command == 'script' 
+if $command == 'script'
 	$script_name = ARGV[3] #shell脚本名
 	$script_content = ARGV[4] #shell脚本内容
 	$build_phase_index = ARGV[5]? ARGV[5].to_i: -1 #shell脚本在build phase中的位置
@@ -77,7 +80,7 @@ else
 	puts "absolute_path:"+$absolute_path
 end
 
-$project = Xcodeproj::Project.open($project_root+"/"+$project_path) 
+$project = Xcodeproj::Project.open($project_root+"/"+$project_path)
 $target = $project.targets.first
 
 # 获取要引入的文件(夹)在xcode中目录路径
@@ -104,10 +107,10 @@ def get_group_from_path(file_path)
 					puts "要引入的文件将置于xcode工程根目录下"
 					return nil
 				end
-			end 
+			end
 		else
 			abort("error:要引入的文件或文件夹并不存在")
-		end 
+		end
 	elsif $command == "del"
 		arrayf.each do |key|
 			if key != "" && key != arrayf[-1]
@@ -119,20 +122,20 @@ def get_group_from_path(file_path)
 	return result==''? nil:result
 end
 
-# 引入单个文件 
-def add_build_phase_file(group, file_path) 
+# 引入单个文件
+def add_build_phase_file(group, file_path)
 	if file_path.end_with?(".framework", ".a", ".bundle") then
 		puts "引入的是.framework/.a/.bundle"
 		file_ref = $project.frameworks_group.new_file(file_path)
 	else
 		file_ref = group.new_reference(file_path)
 	end
-	if file_ref.real_path.to_s.end_with?(".h", ".m", ".mm", ".cpp")  
+	if file_ref.real_path.to_s.end_with?(".h", ".m", ".mm", ".cpp")
 		if !$compile_flag || $compile_flag == '%s' # nil
-			puts "  |++#{file_ref.real_path.to_s}(source)" 
+			puts "  |++#{file_ref.real_path.to_s}(source)"
 			$target.add_file_references([file_ref])
 		else
-			puts "  |++#{file_ref.real_path.to_s}(source)(#{$compile_flag})" 
+			puts "  |++#{file_ref.real_path.to_s}(source)(#{$compile_flag})"
 			$target.add_file_references([file_ref], $compile_flag)
 		end
 	elsif file_ref.real_path.to_s.end_with?(".framework", ".a")
@@ -140,15 +143,15 @@ def add_build_phase_file(group, file_path)
 	elsif file_ref.real_path.to_s.end_with?(".bundle")
 		$target.resources_build_phase.add_file_reference(file_ref)
 	else
-		puts "  |++#{file_ref.real_path.to_s}(resource)" 
+		puts "  |++#{file_ref.real_path.to_s}(resource)"
 		$target.add_resources([file_ref])
 	end
 end
 
 # 递归引入文件夹中的文件
-def add_build_phase_files_recursively(group) 
+def add_build_phase_files_recursively(group)
 	puts "[+#{group.real_path}:#{group.hierarchy_path}"
-	# Dir.entries(group.real_path).each do |sub|   
+	# Dir.entries(group.real_path).each do |sub|
 	Dir.foreach(group.real_path) do |sub|
 		file_path = File.join(group.real_path, sub)
 		# 除.DS_Store以外的文件
@@ -160,38 +163,38 @@ def add_build_phase_files_recursively(group)
 				puts "引入的是.framework/.bundle/.xcodeproj，按文件处理"
 				add_build_phase_file(group, file_path)
 			else
-				hierarchy_path = group.hierarchy_path[1, group.hierarchy_path.length] 
+				hierarchy_path = group.hierarchy_path[1, group.hierarchy_path.length]
 				sub_group = $project.main_group.find_subpath(hierarchy_path + '/' + sub, true)
 				sub_group.set_source_tree(group.source_tree)
 				sub_group.set_path(group.real_path + sub)
 				add_build_phase_files_recursively(sub_group)
 			end
 		end
-	end  
+	end
 end
 
-# 删除单个文件引用 
-def remove_build_phase_file(file_ref) 
-	if file_ref.real_path.to_s.end_with?(".h", ".m", ".mm", ".cpp")  
-		puts "  |--#{file_ref.real_path.to_s}(source)" 
-		$target.source_build_phase.remove_file_reference(file_ref)  
+# 删除单个文件引用
+def remove_build_phase_file(file_ref)
+	if file_ref.real_path.to_s.end_with?(".h", ".m", ".mm", ".cpp")
+		puts "  |--#{file_ref.real_path.to_s}(source)"
+		$target.source_build_phase.remove_file_reference(file_ref)
 	else
-		puts "  |--#{file_ref.real_path.to_s}(resource)" 
+		puts "  |--#{file_ref.real_path.to_s}(resource)"
 		$target.resources_build_phase.remove_file_reference(file_ref)
 	end
 	file_ref.remove_from_project
 end
 
-# 递归删除文件夹 
-def remove_build_phase_files_recursively(group)  
+# 递归删除文件夹
+def remove_build_phase_files_recursively(group)
 	puts "[-#{group.real_path.to_s}]"
-	group.files.each do |file|  
+	group.files.each do |file|
 		remove_build_phase_file(file)
-    end  
-      
-    group.groups.each do |sub_group|  
-		remove_build_phase_files_recursively(sub_group)  
-	end  
+    end
+
+    group.groups.each do |sub_group|
+		remove_build_phase_files_recursively(sub_group)
+	end
 
 	group.clear
 	group.remove_from_project
@@ -207,8 +210,8 @@ if $command == "add"
 			add_build_phase_file(nil, $absolute_path)
 		elsif group_path.end_with?(".xcodeproj")
 			puts "引入的是.xcodeproj，按文件处理"
-			group = $project.main_group.find_subpath(get_parent_folder(group_path), true) 
-			group.set_source_tree('SOURCE_ROOT') 
+			group = $project.main_group.find_subpath(get_parent_folder(group_path), true)
+			group.set_source_tree('SOURCE_ROOT')
 			puts "在#{group.hierarchy_path}下引入文件"
 			add_build_phase_file(group, $absolute_path)
 		else
@@ -216,35 +219,35 @@ if $command == "add"
 			group.set_source_tree('<group>')
 			group.set_path($absolute_path)
 			puts "在#{group.hierarchy_path}下引入文件夹"
-			add_build_phase_files_recursively(group) 
+			add_build_phase_files_recursively(group)
 		end
 	else
-		group = $project.main_group.find_subpath(group_path,true) 
-		group.set_source_tree('SOURCE_ROOT') 
+		group = $project.main_group.find_subpath(group_path,true)
+		group.set_source_tree('SOURCE_ROOT')
 		puts "在#{group.hierarchy_path}下引入文件"
 		add_build_phase_file(group, $absolute_path)
-	end  
+	end
 	puts $project_path + " " + $command + " " + $file_path + " success"
 elsif $command == "del"
-	group = $project.main_group.find_subpath($file_path,false) 
+	group = $project.main_group.find_subpath($file_path,false)
 
 	if group.kind_of? Xcodeproj::Project::Object::PBXFileReference
 		puts "xcode中移除文件夹#{group.hierarchy_path}"
 		remove_build_phase_file(group)
-	else 
+	else
 		group.set_source_tree('SOURCE_ROOT')
 		puts "xcode中移除文件#{group.hierarchy_path}"
-		remove_build_phase_files_recursively(group) 
-	end  
+		remove_build_phase_files_recursively(group)
+	end
 
 	# 父目录为空时移除
 	parent = get_parent_folder($file_path)
-	while parent 
+	while parent
 		group = $project.main_group.find_subpath(parent,false)
 		if !group
 			break
 		end
-		if group.empty? 
+		if group.empty?
 			puts "因已空，移除group:"+group.hierarchy_path
 			group.clear
 			group.remove_from_project
