@@ -10,6 +10,11 @@ echo $projectname
 
 # sed -i "" "/\"react-native\":/d" package.json
 
+rnSecondVersion=`sed -n "/\"react-native\"/s/[^0]*0\.\([1-9]*\).*/\1/p" ios/package.json`
+if rnSecondVersion > 48
+  sed -i "" "/Yoga/s/Yoga/yoga/g" ios/Podfile
+fi
+
 sed -i "" "/\'fego/s/fego/$projectname/g" ios/Podfile
 sed -i "" "s/index.ios/index/g;s/fego/$projectname/g" ios/$projectname/AppDelegate.m
 
