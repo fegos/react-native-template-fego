@@ -21,5 +21,6 @@ sed -i "" "s/index.ios/index/g;s/fego/$projectname/g" ios/$projectname/AppDelega
 sed -i "" "/\'fego\'/s/fego/$projectname/g" index.js
 
 # android需要更改的配置
-sed -i '' '27a\'$'\n''\'$'\n''@Override\'$'\n''protected String getJSMainModuleName() {\'$'\n''return "index";\'$'\n''}'$'\n' android/app/src/main/java/com/$projectname/MainApplication.java
-sed -i '' '29s/^/    /g;30s/^/    /g;31s/^/      /g;32s/^/    /g' android/app/src/main/java/com/$projectname/MainApplication.java
+sed -i "/HotUpdatePackage;/s/HotUpdatePackage/service.HotUpdatePackage/" android/app/src/main/java/com/$projectname/MainApplication.java
+sed -i '' '30a\'$'\n''\'$'\n''@Override\'$'\n''protected String getJSMainModuleName() {\'$'\n''return "index";\'$'\n''}'$'\n' android/app/src/main/java/com/$projectname/MainApplication.java
+sed -i '' '32s/^/  /g;33s/^/  /g;34s/^/    /g;35s/^/  /g' android/app/src/main/java/com/$projectname/MainApplication.java
