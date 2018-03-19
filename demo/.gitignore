@@ -51,5 +51,22 @@ buck-out/
 fastlane/report.xml
 fastlane/Preview.html
 fastlane/screenshots
+.name
+.vscode
+node_modules
+*.iml
+*.log
 
-
+## Build generated
+build/
+DerivedData
+Pods
+Podfile.lock
+*.xcuserstate
+xcuserdata
+*.hmap
+*.ipa
+package-lock.json
+yarn.lock
+lint.txt
+sync.sh
