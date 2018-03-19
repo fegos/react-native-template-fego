@@ -57,3 +57,4 @@ Podfile.lock
 .name
 .vscode
 package-lock.json
+npm-debug.log.*
