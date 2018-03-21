@@ -27,6 +27,12 @@ rm $projectname/AppDelegate.m
 mv AppDelegate.m $projectname/AppDelegate.m
 echo "+++++++++mod AppDelegate+++++++++"
 cd ..
+cd android/
+packageName=$(echo $projectname | tr '[A-Z]' '[a-z]')
+rm app/src/main/java/com/$packageName/MainActivity.java
+mv MainActivity.java app/src/main/java/com/$packageName/MainActivity.java
+echo "+++++++++mod MainActivity+++++++++"
+cd ..
 chmod u+x ./tools/sed.sh
 ./tools/sed.sh
 # ruby tools/xcodeFileManager.rb ../ios $projectname add ip.txt

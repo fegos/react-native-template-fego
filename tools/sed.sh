@@ -21,6 +21,11 @@ sed -i "" "s/index.ios/index/g;s/fego/$projectname/g" ios/$projectname/AppDelega
 sed -i "" "/\'fego\'/s/fego/$projectname/g" index.js
 
 # android需要更改的配置
-sed -i "" "/HotUpdatePackage;/s/HotUpdatePackage/service.HotUpdatePackage/" android/app/src/main/java/com/$projectname/MainApplication.java
-sed -i '' '29a\'$'\n''\'$'\n''@Override\'$'\n''protected String getJSMainModuleName() {\'$'\n''return "index";\'$'\n''}'$'\n' android/app/src/main/java/com/$projectname/MainApplication.java
-sed -i '' '31s/^/    /g;32s/^/    /g;33s/^/      /g;34s/^/    /g' android/app/src/main/java/com/$projectname/MainApplication.java
+# sed -i "" "/HotUpdatePackage;/s/HotUpdatePackage/service.HotUpdatePackage/" android/app/src/main/java/com/$projectname/MainApplication.java
+# sed -i '' '29a\'$'\n''\'$'\n''@Override\'$'\n''protected String getJSMainModuleName() {\'$'\n''return "index";\'$'\n''}'$'\n' android/app/src/main/java/com/$projectname/MainApplication.java
+# sed -i '' '31s/^/    /g;32s/^/    /g;33s/^/      /g;34s/^/    /g' android/app/src/main/java/com/$projectname/MainApplication.java
+sed -i '' '139a\'$'\n''compile "com.squareup.retrofit2:converter-gson:2.0.0"\'$'\n' android/app/build.gradle
+sed -i '' '139a\'$'\n''compile "com.squareup.retrofit2:retrofit:2.1.0"\'$'\n' android/app/build.gradle
+packageName=$(echo $projectname | tr '[A-Z]' '[a-z]')
+sed -i "" "s/com.fego/com.$packageName/g" android/app/src/main/java/com/$packageName/MainActivity.java
+sed -i "" "s/fego/$projectname/g" android/app/src/main/java/com/$packageName/MainActivity.java
