@@ -45,7 +45,18 @@ export default class Page extends React.Component {
     this.on('pageChange', this._handlePageChange);
     console.log(`新建Page ${this.routeName}`, this, Message);
   }
-
+  /**
+   * 更新实例的路由参数
+   * 与navigation.setParams类似，但新增了参数override
+   * 比如：结合 static navigationOptions 使用参数更新navbar的title，buttons等
+   * static navigationOptions = ({ navigation }) => {
+   *    const { setParams, state } = navigation,
+        { params } = state;
+        return {
+          title: 'xxx',
+        }
+    }
+   */
   setParams(params, override = true) {
     // 不覆盖，则继承原参数，只设置需变更的属性
     if (!override) params = merge({}, this.getParams(), params);
@@ -66,7 +77,6 @@ export default class Page extends React.Component {
     }
     return {};
   }
-
   /**
    * 页面挂载就绪
    */
@@ -139,18 +149,7 @@ export default class Page extends React.Component {
   emit(eName, ...rest) {
     Message.emit(eName, ...rest);
   }
-  /**
-   * 更新实例的路由参数
-   * 与navigation.setParams类似，但新增了参数override
-   * 比如：结合 static navigationOptions 使用参数更新navbar的title，buttons等
-   * static navigationOptions = ({ navigation }) => {
-   *    const { setParams, state } = navigation,
-        { params } = state;
-        return {
-          title: 'xxx',
-        }
-    }
-   */
+
   _handleAppChange = (msg) => {
     const appVisible = msg.visible;
     // 若当前页是自己
