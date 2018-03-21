@@ -11,7 +11,7 @@
 
 #import <React/RCTBundleURLProvider.h>
 #import <React/RCTRootView.h>
-
+#import "NIPRnController.h"
 #import "NIPRnManager.h"
 
 @implementation AppDelegate
@@ -31,6 +31,7 @@
 
 - (void)loadRnController {
   NIPRnController *controller = [[NIPRnManager managerWithBundleUrl:@"" noHotUpdate:NO noJsServer:NO] loadControllerWithModel:@"demo"];
+  controller.appProperties = @{@"productFlavor": @"second"};
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wincompatible-pointer-types"

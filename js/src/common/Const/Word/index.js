@@ -1,7 +1,7 @@
 /**
- * 文案字典
+ * 文案字典，两套配置
  */
 export default {
   main: require('./main').default,
-  ec: require('./ec').default,
+  second: require('./second').default,
 };

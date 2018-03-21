@@ -6,7 +6,7 @@ export default {
   colorBlue: '#4c90c7',
   // 文本主色
   textColor: '#333333',
-  // 文本副色2
+  // 文本副色
   textColor2: '#999999',
   textColor3: '#515151',
   textColor4: '#3D3D3D',

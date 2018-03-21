@@ -3,7 +3,6 @@ export default {
   //       stop: 止 profit(prof): 盈 loss: 损 scope: 范围 buy: 买 sell: 卖 affirm(aff): 确认
   //       success(su): 成功 blank: 空白 all: 全部  hold: 持有 average(avg): 均 list: 汇总 order: 下单
 
-  // 行情页面 hq
+  // 行情页面买入按钮
   hqBuyBtn: '买入',
-
 };

@@ -1,5 +1,5 @@
 /**
- * 常量模块
+ * 常量模块：样式、文本、设备等信息
  */
 import { StatusBar, Platform, Dimensions } from 'react-native';
 import Theme from './Theme';

@@ -1,5 +1,5 @@
 export default {
-  // 色系，不随主题变化，即不同主题下，该红色的仍然是红色（可微调）
+  // 色系，不随主题变化（可微调）
   colorWhite: '#FFFFFF',
   colorRed: '#F05B48',
   colorGreen: '#10BC90',
@@ -7,13 +7,13 @@ export default {
   colorBlue: '#4c90c7',
   // 文本主色
   textColor: '#FFFFFF',
-  // 文本副色2
+  // 文本副色
   textColor2: '#8F8F8F',
   textColor3: '#515151',
   textColor4: '#3D3D3D',
   // 背景主色
   bgColor: '#1b1b1b',
-  // 背景副色2
+  // 背景副色
   bgColor2: '#222222',
   bgColor3: '#3E3E3E',
   bgColor4: '#484848',
@@ -26,7 +26,6 @@ export default {
   lineColor: '#3D3D3D',
   // 输入框底线的颜色
   lineInputColor: '#484848',
-
   placeholderColor: '#515151',
   // 按钮文本
   buttonTextColor: '#333333',

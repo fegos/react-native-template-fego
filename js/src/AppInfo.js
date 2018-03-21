@@ -1,17 +1,19 @@
 // ============== APP各版配置 ==============
+// 不同的版本可以使用不同的皮肤和功能配置
 export const AppTypes = {
 
-  // 默认版
+  // 版本一
   main: {
-    name: '通用',
+    name: '版本一',
     theme: 'black',
   },
-  // 电商版
-  ec: {
-    name: '电商',
-    theme: 'black',
+  // 版本二
+  second: {
+    name: '版本二',
+    theme: 'white',
   },
 };
+
 const AppInfo = {
   // 当前APP类型
   // APP打包时会修正此属性（RN实例通过props传递）

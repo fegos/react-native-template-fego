@@ -1,19 +1,13 @@
 /**
  * 应用导航工具
- * @author esky
  */
 import { NavigationActions, StateUtils, StackNavigator } from 'react-navigation';
-// import { Animated, Easing } from 'react-native'
 import { Message } from 'fego-rn';
 import NavDecorator from './NavDecorator';
 import Tool from './Tool';
-// import { reach } from '../../../../../../../../Library/Caches/typescript/2.6/node_modules/@types/hoek';
-// import default from '../../../../../../../../Library/Caches/typescript/2.6/node_modules/@types/gulp-util/node_modules/chalk';
 
 const defaultConfig = {
   rootName: 'Root',
-  // loginName: 'user/Login',
-
   topRoutes: ['Root', 'Home', 'Position', 'My'], // 'user/Login',
 };
 // 缓存导航容器，防止重复创建
@@ -69,11 +63,15 @@ export default {
     }
     return NavDecoratorCache;
   },
+  /**
+   * 响应导航指令
+   * @param {*} action
+   */
   dispatch(action) {
     this.navigator && this.navigator.dispatch(action);
   },
   /**
-    * 导航跳转
+    * 导航推出新页面
     */
   nav(routeName, params) {
     const newAction = NavigationActions.navigate({
@@ -105,10 +103,11 @@ export default {
     this.dispatch({ type: 'top', routeName, params });
   },
   /**
-    * 按路径跳转
-    * routeNames: array
-    * params: dictionary
-    */
+   * 按路径打开页面
+   *
+   * @param {Array} 页面路由组成的数组
+   * @param {Dictionary} params 传入上层展示页面的数据
+   */
   path(routeNames, params) {
     this.dispatch({ type: 'path', routeNames, params });
   },

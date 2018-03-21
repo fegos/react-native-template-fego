@@ -10,7 +10,7 @@ import AppNav from './index';
 const NavDecorator = Navigator => (props) => {
   AppNav.init && AppNav.init(Navigator);
   return (<Navigator
-    uriPrefix="nsip://"
+    uriPrefix="fego://"
     {...props}
     ref={(nav) => {
     // 注意 hotreload 时 nav会为null，仅当nav存在时才设置
