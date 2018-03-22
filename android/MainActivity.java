@@ -1,9 +1,10 @@
-package com.demo;
+package com.fego;
 
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Typeface;
 import android.net.Uri;
 import android.os.Build;
 import android.os.Bundle;
@@ -15,8 +16,9 @@ import com.facebook.react.ReactInstanceManager;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.ReactRootView;
 import com.facebook.react.modules.core.DefaultHardwareBackBtnHandler;
-import com.demo.android.service.HotUpdatePackage;
-import com.demo.android.service.ReactManager;
+import com.facebook.react.views.text.ReactFontManager;
+import com.fego.android.service.HotUpdatePackage;
+import com.fego.android.service.ReactManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -51,7 +53,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
         }
         mReactInstanceManager = ReactManager.getInstance().getRnInstanceManager();
       }
-      mReactRootView = ReactManager.getInstance().getReactViewByModuleName("Demo", this, null);
+      mReactRootView = ReactManager.getInstance().getReactViewByModuleName("fego", this, null);
       setContentView(mReactRootView);
     }
   }

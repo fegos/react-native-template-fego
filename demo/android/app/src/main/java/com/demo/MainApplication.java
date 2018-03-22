@@ -3,7 +3,7 @@ package com.demo;
 import android.app.Application;
 
 import com.facebook.react.ReactApplication;
-import com.fego.android.service.service.HotUpdatePackage;
+import com.fego.android.service.HotUpdatePackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.react.shell.MainReactPackage;
@@ -26,11 +26,6 @@ public class MainApplication extends Application implements ReactApplication {
           new MainReactPackage(),
             new HotUpdatePackage()
       );
-    }
-
-    @Override
-    protected String getJSMainModuleName() {
-      return "index";
     }
 
     @Override
