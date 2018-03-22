@@ -28,6 +28,8 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
   @Override
   protected void onCreate(@Nullable Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
+    Typeface tf = Typeface.createFromAsset(getAssets(), "song.ttf");
+    ReactFontManager.getInstance().setTypeface("song", 0, tf);
     if (BuildConfig.DEBUG && Build.VERSION.SDK_INT >= 23 && !Settings.canDrawOverlays(this)) {
       showPermissonDialog();
     } else {

@@ -20,6 +20,8 @@ rm app.json
 rm index.android.js
 rm index.ios.js
 echo "+++++++++remove files+++++++++"
+mkdir android/app/src/main/assets
+cp resource/song.ttf android/app/src/main/assets/song.ttf
 cd ios/
 rm $projectname/AppDelegate.h
 mv AppDelegate.h $projectname/AppDelegate.h
