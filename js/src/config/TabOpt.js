@@ -11,7 +11,7 @@ export default {
   backBehavior: 'no',
   lazy: true,
   tabBarOptions: {
-    showIcon: false,
+    showIcon: true,
     showLabel: true,
     upperCaseLabel: false,
     activeTintColor: Const.colorYellow,
