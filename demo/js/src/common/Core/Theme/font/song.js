@@ -11,15 +11,19 @@
  * up 向上
  * down 向下
  */
-let song = {
-	// 首页
-  'home': 'e61f',
+const song = {
+  // 首页
+  home: 'e61f',
   // 清单
-  'list': 'e68d',
-	// 用户
-  'account': 'e6a3'
+  list: 'e68d',
+  // 用户
+  account: 'e6a3',
+  // 左箭头
+  'arrow-left': 'e64c',
+  // 关闭
+  close: 'e652',
+};
+for (const k in song) {
+  song[k] = parseInt(song[k], 16);
 }
-for (let k in song) {
-	song[k] = parseInt(song[k], 16);
-}
-export default song
+export default song;

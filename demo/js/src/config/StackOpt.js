@@ -33,7 +33,7 @@ export default {
 }}
         onPress={() => { navigation.goBack(); }}
       >
-        <Icon name="goback" family="nsip" size={20} color={Const.textColor} />
+        <Icon name="arrow-left" family="song" size={20} color={Const.textColor} />
       </Button>),
   }),
 };

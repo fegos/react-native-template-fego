@@ -13,13 +13,14 @@
 #import <React/RCTRootView.h>
 #import "NIPRnController.h"
 #import "NIPRnManager.h"
+#import "NIPIconFontService.h"
 
 @implementation AppDelegate
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions
 {
   [self loadDefaultKeyWindow];
-  
+  [NIPIconFontService registerIconFontsByNames:@[@"song"]];
   return YES;
 }
 
@@ -31,13 +32,13 @@
 
 - (void)loadRnController {
   NIPRnController *controller = [[NIPRnManager managerWithBundleUrl:@"" noHotUpdate:NO noJsServer:NO] loadControllerWithModel:@"demo"];
-  controller.appProperties = @{@"productFlavor": @"second"};
+  controller.appProperties = @{@"productFlavor": @"main"};
 
 #pragma clang diagnostic push
 #pragma clang diagnostic ignored "-Wincompatible-pointer-types"
   self.window.rootViewController = controller;
 #pragma clang diagnostic pop
-  
+
   [self.window makeKeyAndVisible];
 }
 

@@ -1,5 +1,5 @@
 import React from 'react';
-import { AppNav } from 'src/common';
+import { AppNav, Core } from 'src/common';
 import Route from 'src/config/Route';
 import ErrorUtils from 'ErrorUtils';
 
@@ -10,6 +10,9 @@ if (!__DEV__) {
     // alert("异常", JSON.stringify(e))
   });
 }
+
+// 核心组件初始化
+Core.init();
 
 // 应用导航容器
 const AppNavigator = AppNav.createStackNavigator(Route.routeConf, Route.stackOpt);

@@ -10,7 +10,7 @@ const TabIcon = (props) => {
   // Note:tabBarIcon的父标签必须设置高度以避免icon与label重叠，bug详见： https://github.com/react-community/react-navigation/issues/2805
   return (
     <View style={{ height: 26 }}>
-      <Icon name={name} family="nsip" style={{ color: iconAttr.tintColor, fontSize: 22 }} />
+      <Icon name={name} family="song" style={{ color: iconAttr.tintColor, fontSize: 22 }} />
     </View>);
 };
 
@@ -32,7 +32,7 @@ export default {
     path: 'Position',
     navigationOptions: {
       tabBarLabel: '持单',
-      tabBarIcon: iconAttr => <TabIcon iconAttr={iconAttr} name="position" />,
+      tabBarIcon: iconAttr => <TabIcon iconAttr={iconAttr} name="list" />,
     },
   },
   My: {
@@ -40,7 +40,7 @@ export default {
     path: 'My',
     navigationOptions: {
       tabBarLabel: '我的',
-      tabBarIcon: iconAttr => <TabIcon iconAttr={iconAttr} name="user" />,
+      tabBarIcon: iconAttr => <TabIcon iconAttr={iconAttr} name="account" />,
     },
   },
 };
