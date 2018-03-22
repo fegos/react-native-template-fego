@@ -27,5 +27,7 @@ sed -i "" "/\'fego\'/s/fego/$projectname/g" index.js
 sed -i '' '139a\'$'\n''compile "com.squareup.retrofit2:converter-gson:2.0.0"\'$'\n' android/app/build.gradle
 sed -i '' '139a\'$'\n''compile "com.squareup.retrofit2:retrofit:2.1.0"\'$'\n' android/app/build.gradle
 packageName=$(echo $projectname | tr '[A-Z]' '[a-z]')
-sed -i "" "s/com.fego/com.$packageName/g" android/app/src/main/java/com/$packageName/MainActivity.java
-sed -i "" "s/fego/$projectname/g" android/app/src/main/java/com/$packageName/MainActivity.java
+sed -i "" "s/com.packagename/com.$packageName/g" android/app/src/main/java/com/$packageName/MainActivity.java
+sed -i "" "s/packagename/$projectname/g" android/app/src/main/java/com/$packageName/MainActivity.java
+sed -i "" "s/com.packagename/com.$packageName/g" android/app/src/main/java/com/$packageName/MainApplication.java
+

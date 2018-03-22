@@ -22,6 +22,8 @@ rm index.ios.js
 echo "+++++++++remove files+++++++++"
 mkdir android/app/src/main/assets
 cp resource/song.ttf android/app/src/main/assets/song.ttf
+rm android/app/src/main/assets/song.ttf
+cp resource/song.ttf android/app/src/main/assets/song.ttf
 cd ios/
 rm $projectname/AppDelegate.h
 mv AppDelegate.h $projectname/AppDelegate.h
@@ -31,7 +33,9 @@ echo "+++++++++mod AppDelegate+++++++++"
 cd ..
 cd android/
 packageName=$(echo $projectname | tr '[A-Z]' '[a-z]')
+rm app/src/main/java/com/$packageName/MainApplication.java
 rm app/src/main/java/com/$packageName/MainActivity.java
+mv MainApplication.java app/src/main/java/com/$packageName/MainApplication.java
 mv MainActivity.java app/src/main/java/com/$packageName/MainActivity.java
 echo "+++++++++mod MainActivity+++++++++"
 cd ..

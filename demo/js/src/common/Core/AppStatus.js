@@ -1,7 +1,7 @@
 /**
  * 应用状态组件
  */
-import { Message, RNMessage } from 'fego-rn';
+import { Message } from 'fego-rn';
 import { AppState } from 'react-native';
 import { AppNav } from 'common';
 
@@ -40,11 +40,11 @@ export default {
       // 业务页面专用全局事件
       Message.emit('appVisible', msg);
       // 框架组件专用全局事件
-      RNMessage.emit('appVisible', msg);
+      Message.emit('appVisible', msg);
       // console.log('appVisible', msg, AppNav)
     }
     // 每次状态变化均触发
     Message.emit('appChange', msg);
-    RNMessage.emit('appChange', msg);
+    Message.emit('appChange', msg);
   },
 };

@@ -1,4 +1,4 @@
-package com.fego;
+package com.packagename;
 
 import android.app.Activity;
 import android.app.AlertDialog;
@@ -53,7 +53,7 @@ public class MainActivity extends Activity implements DefaultHardwareBackBtnHand
         }
         mReactInstanceManager = ReactManager.getInstance().getRnInstanceManager();
       }
-      mReactRootView = ReactManager.getInstance().getReactViewByModuleName("fego", this, null);
+      mReactRootView = ReactManager.getInstance().getReactViewByModuleName("packagename", this, null);
       setContentView(mReactRootView);
     }
   }
