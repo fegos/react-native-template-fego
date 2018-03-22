@@ -3,7 +3,7 @@ import { AppNav, Core } from 'src/common';
 import Route from 'src/config/Route';
 import ErrorUtils from 'ErrorUtils';
 
-//========= 模块初始化 start ==========
+// ========= 模块初始化 start ==========
 /* eslint no-undef: "off" */
 if (!__DEV__) {
   ErrorUtils.setGlobalHandler(() => {

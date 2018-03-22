@@ -23,7 +23,11 @@ const song = {
   // 关闭
   close: 'e652',
 };
+
 for (const k in song) {
-  song[k] = parseInt(song[k], 16);
+  if (Object.prototype.hasOwnProperty.call(song, k)) {
+    song[k] = parseInt(song[k], 16);
+  }
 }
+
 export default song;

@@ -1,15 +1,16 @@
 import {
   Icon, Tag,
-  Button, Dialog, Modal,
+  Button, Dialog,
   Segment, Popup,
-  List, ListItem,
   Checkbox, Switch,
   MonthPicker, RefreshConfig,
 } from 'fego-rn';
-import { INumber } from 'common';
 import { Text } from 'react-native';
 import Const from '../../Const';
 
+/**
+ * 常用UI组件样式配置，iconFont初始化
+ */
 export default {
   init() {
     // 文本默认样式

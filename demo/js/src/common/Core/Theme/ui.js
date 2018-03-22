@@ -1,12 +1,10 @@
 import {
   Icon, Tag,
-  Button, Dialog, Modal,
+  Button, Dialog,
   Segment, Popup,
-  List, ListItem,
   Checkbox, Switch,
   MonthPicker, RefreshConfig,
 } from 'fego-rn';
-import { INumber } from 'common';
 import { Text } from 'react-native';
 import Const from '../../Const';
 

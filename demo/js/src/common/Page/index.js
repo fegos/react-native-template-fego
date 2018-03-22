@@ -2,8 +2,6 @@
  * 功能页基类
  * 依赖AppNav，监听导航变化，需要导航器初始化后方可创建
  * 依赖AppStatus，监听应用状态变化
- * 注意：栈顶是指APP当前显示的页面
- * @author esky
  */
 import React from 'react';
 import { Message } from 'fego-rn';
