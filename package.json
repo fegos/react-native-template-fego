@@ -1,6 +1,6 @@
 {
 	"name": "react-native-template-fego",
-	"version": "0.0.25",
+	"version": "0.0.26",
 	"description": "react-native 自定义模版。快速构建集导航、高级组件、热更新等能力的react-native项目。",
 	"private": false,
 	"keywords": [
