@@ -4,7 +4,7 @@ react-native 自定义[模版](https://github.com/facebook/react-native/commit/3
 
 - **官方支持，稳定可靠** RN的0.43版本提供了自定义模板工程的能力。不用担心RNSDK升级导致不可用或者适配困难的问题。
 - **快速构建，操作简单** 只需要几分钟，一个可以在安卓和iOS两端运行的RN项目即可构建成功。react init命令完成后，只需要运行init.sh脚本，即可直接进行开发调试。
-- **降低门槛，功能强大** 集成导航、[热更新](https://github.com/fegos/fego-rn-update/blob/master/README.md)、[高阶组件](https://github.com/fegos/fego-rn/blob/master/README.md)等能力和技术方案，降低了RN的开发门槛。
+- **降低门槛，功能整合** 集成导航、[热更新](https://github.com/fegos/fego-rn-update/blob/master/README.md)、[高阶组件](https://github.com/fegos/fego-rn/blob/master/README.md)等能力和技术方案，降低了RN的开发门槛。
 
 要求：>= react-native 0.43, >= iOS 8.0, >= Android 4.1 (API 16)
 
