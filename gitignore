@@ -18,3 +18,4 @@ yarn.lock
 lint.txt
 sync.sh
 npm-debug.log.*
+ip.txt
