@@ -14,6 +14,9 @@ rnSecondVersion=`sed -n "/\"react-native\"/s/[^0]*0\.\([1-9]*\).*/\1/p" package.
 if [ $rnSecondVersion -gt 48 ]; then
   sed -i "" "/Yoga/s/Yoga/yoga/g" ios/Podfile
 fi
+sed -i '' '/"scripts"/a\'$'\n''"update": "yarn update && cd ios && pod update",\'$'\n' package.json
+sed -i '' '/"scripts"/a\'$'\n''"init": "yarn install --no-optional -s --registry=https://registry.npm.taobao.org && cd ios && pod install",\'$'\n' package.json
+sed -i '' '/"init"/s/^/    /g;/"update"/s/^/    /g' package.json
 
 sed -i "" "/\'fego/s/fego/$projectname/g" ios/Podfile
 sed -i "" "s/index.ios/index/g;s/fego/$projectname/g" ios/$projectname/AppDelegate.m

@@ -14,5 +14,6 @@
 	"react-static-container": "^1.0.1",
 	"base-64": "0.1.0",
 	"glob": "7.0.6",
-	"color": "^0.11.1"
+  "color": "^0.11.1",
+  "react-native-fetch-blob": "0.10.8"
 }

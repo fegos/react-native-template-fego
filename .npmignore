@@ -60,3 +60,8 @@ Podfile.lock
 .vscode
 package-lock.json
 npm-debug.log.*
+.buckconfig
+.flowconfig
+.gitattributes
+.watchmanconfig
+defaults.reek

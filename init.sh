@@ -3,7 +3,6 @@ echo $projectname
 
 cat gitignore >> .gitignore; rm gitignore
 echo "+++++++++mod gitignore+++++++++"
-yarn add react-native-fetch-blob@0.10.8
 yarn add eslint@^4.0.0 --dev
 yarn add eslint-plugin-react@7.1.0 --dev
 yarn add babel-eslint@8.0.2 --dev
@@ -19,6 +18,7 @@ rm App.js
 rm app.json
 rm index.android.js
 rm index.ios.js
+rm .npmignore
 echo "+++++++++remove files+++++++++"
 mkdir android/app/src/main/assets
 cp resource/song.ttf android/app/src/main/assets/song.ttf
@@ -47,14 +47,5 @@ ruby tools/xcodeFileManager.rb ../ios $projectname del $projectname/main.jsbundl
 ruby tools/xcodeFileManager.rb ../ios $projectname script SetIP  "ip=\$(ifconfig | grep 'inet 10.' | head -1 | cut -d \" \" -f 2)+--+if [ ! -f ip.txt ]; then+--+touch ip.txt+--+ruby ../tools/xcodeFileManager.rb ../ios $projectname add ip.txt+--+fi+--+echo \$ip >ip.txt" 0
 echo "+++++++++modify files+++++++++"
 rm -r node_modules
-yarn install
-echo "+++++++++yarn install+++++++++"
-cd ios/
-pod install
-echo "+++++++++pod install+++++++++"
-cd ..
 rm .babelrc
 mv babelrc .babelrc
-echo "+++++++++mod babelrc+++++++++"
-yarn start
-echo "+++++++++yarn start+++++++++"
