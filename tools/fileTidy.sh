@@ -8,7 +8,6 @@ rm App.js
 rm app.json
 rm index.android.js
 rm index.ios.js
-rm .npmignore
 rm -r node_modules
 rm .buckconfig
 rm .gitattributes

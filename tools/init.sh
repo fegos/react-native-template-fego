@@ -1,5 +1,3 @@
-cd ..
-
 chmod u+x ./tools/yarn.sh
 ./tools/yarn.sh
 
