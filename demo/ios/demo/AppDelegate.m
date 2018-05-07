@@ -31,7 +31,7 @@
 
 
 - (void)loadRnController {
-  NIPRnController *controller = [[NIPRnManager managerWithBundleUrl:@"" noHotUpdate:NO noJsServer:NO] loadControllerWithModel:@"demo"];
+  NIPRnController *controller = [[NIPRnManager managerWithRemoteJSBundleRoot:@"" useHotUpdate:YES andUseJSServer:YES] loadRNControllerWithModule:@"demo"];
   controller.appProperties = @{@"productFlavor": @"main"};
 
 #pragma clang diagnostic push

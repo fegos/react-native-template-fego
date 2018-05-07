@@ -6,7 +6,7 @@ react-native 自定义[模版](https://github.com/facebook/react-native/commit/3
 - **快速构建，操作简单** 只需要几分钟，一个可以在安卓和iOS两端运行的RN项目即可构建成功。react init命令完成后，只需要运行init.sh脚本，即可直接进行开发调试。
 - **降低门槛，功能整合** 集成导航、[热更新](https://github.com/fegos/fego-rn-update/blob/master/README.md)、[高阶组件](https://github.com/fegos/fego-rn/blob/master/README.md)等能力和技术方案，降低了RN的开发门槛。
 
-要求：react-native: >= 0.43, <= 0.47, iOS: >= 8.0, Android: >= 4.1 (API 16)
+要求：react-native: >= 0.47, <= 0.55, iOS: >= 8.0, Android: >= 4.1 (API 16)
 
 
 ## Get Started
@@ -24,36 +24,36 @@ react-native 自定义[模版](https://github.com/facebook/react-native/commit/3
 
 	```bash
 	$ cd projectName
-	$ sh init.sh
+	$ sh tools/init.sh
 	```
 
 ### 项目运行
-1. 运行准备  
+1. 运行准备
 	初次运行需要先安装Node和Pod库：
 
 	```bash
 	$ npm run init
-	```  
+	```
 	库有更新的话通过如下命令：
-	
+
 	```bash
 	$ npm run update
-	```  
+	```
 	开启服务：
-	
+
 	```bash
 	$ npm start
-	```  
-2. 运行模拟器  
+	```
+2. 运行模拟器
 	通过命令运行：
-	
+
 	```bash
-	$ npm run ios
-	$ npm run android
+	$ react-native run-ios
+	$ react-native run-android
 	```
 	或者打开Xcode和AndroidStudio运行。
-	
-3. 运行真机  
+
+3. 运行真机
 	Xcode中选取设备后，iOS可以直接运行。
 	Android运行真机目前需要先获取电脑IP进行设置。
 

@@ -3,11 +3,14 @@ import {
   Button, Dialog,
   Segment, Popup,
   Checkbox, Switch,
-  MonthPicker, RefreshConfig,
+  MonthSelector, RefreshConfig,
 } from 'fego-rn';
 import { Text } from 'react-native';
 import Const from '../../Const';
 
+/**
+ * 常用UI组件样式配置，iconFont初始化
+ */
 export default {
   init() {
     // 文本默认样式
@@ -251,7 +254,7 @@ export default {
         // backgroundColor: '#9098AD'
       },
     });
-    MonthPicker.setBaseStyle(MonthPicker, {
+    MonthSelector.setBaseStyle(MonthSelector, {
       container: {
         backgroundColor: Const.bgColor,
       },

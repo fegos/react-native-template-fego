@@ -20,13 +20,13 @@ def mainPods
 	'ART',
 	'RCTAnimation',
 	'RCTWebSocket', # needed for debugging
-	'jschelpers_legacy',
-	'cxxreact_legacy',
-	'BatchedBridge'
+	'jschelpers',
+	'cxxreact',
+	'CxxBridge'
 	]
 	# 如果你的RN版本 >= 0.42.0，则加入下面这行
-	pod 'Yoga', :path => '../node_modules/react-native/ReactCommon/yoga'
-  pod 'NIPFegoBaseLib', :git => 'https://github.com/dongdong204hn/BaseProject.git', :branch =>'master'
+	pod "yoga", :path => '../node_modules/react-native/ReactCommon/yoga'
+	pod 'NIPFegoBaseLib', :git => 'https://github.com/dongdong204hn/BaseProject.git', :branch =>'master'
 	pod 'FegoRnUpdate', :path => '../node_modules/fego-rn-update/'
 end
 

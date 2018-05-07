@@ -9,7 +9,7 @@ const TabIcon = (props) => {
   const { name, iconAttr } = props;
   // Note:tabBarIcon的父标签必须设置高度以避免icon与label重叠，bug详见： https://github.com/react-community/react-navigation/issues/2805
   return (
-    <View style={{ height: 26 }}>
+    <View style={{ height: 26, width: 30, alignItems: 'center' }}>
       <Icon name={name} family="song" style={{ color: iconAttr.tintColor, fontSize: 22 }} />
     </View>);
 };

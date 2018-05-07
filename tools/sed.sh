@@ -18,7 +18,7 @@ sed -i '' '/"init"/s/^/    /g;/"update"/s/^/    /g' package.json
 rnSecondVersion=`sed -n "/\"react-native\"/s/[^0]*0\.\([1-9]*\).*/\1/p" package.json`
 if [ $rnSecondVersion -gt 48 ]; then
   sed -i "" "/Yoga/s/Yoga/yoga/g" ios/Podfile
-  if [ $rnSecondVersion -gt  ]; then
+  if [ $rnSecondVersion -gt 53 ]; then
     sed -i "" "s/BatchedBridge/CxxBridge/g" ios/Podfile
     sed -i "" "s/jschelpers_legacy/jschelpers/g" ios/Podfile
     sed -i "" "s/cxxreact_legacy/cxxreact/g" ios/Podfile
