@@ -16,7 +16,7 @@ react-native 自定义[模版](https://github.com/facebook/react-native/commit/3
 
 	```bash
 	$ react-native init projectName --version="RNSDKVersion" --template fego
-	# 通过--version来指定所用的react-native版本，不指定的话，会默认使用最高版本。
+	# 通过--version来指定所用的react-native版本，不指定的话，会默认使用最高版本，推荐使用0.55.3版本。
 	```
 	注意: init过程会篡改ttf字体文件的内容导致出错，暂无很好的解决办法，所以init完成之后需要从git下载resource文件夹下的song.ttf替换本地文件。
 
