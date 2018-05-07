@@ -10,15 +10,23 @@ echo $projectname
 
 # sed -i "" "/\"react-native\":/d" package.json
 
-rnSecondVersion=`sed -n "/\"react-native\"/s/[^0]*0\.\([1-9]*\).*/\1/p" package.json`
-if [ $rnSecondVersion -gt 48 ]; then
-  sed -i "" "/Yoga/s/Yoga/yoga/g" ios/Podfile
-fi
+
 sed -i '' '/"scripts"/a\'$'\n''"update": "yarn upgrade && cd ios && pod update",\'$'\n' package.json
 sed -i '' '/"scripts"/a\'$'\n''"init": "yarn install --no-optional -s --registry=https://registry.npm.taobao.org && cd ios && pod install",\'$'\n' package.json
 sed -i '' '/"init"/s/^/    /g;/"update"/s/^/    /g' package.json
 
+rnSecondVersion=`sed -n "/\"react-native\"/s/[^0]*0\.\([1-9]*\).*/\1/p" package.json`
+if [ $rnSecondVersion -gt 48 ]; then
+  sed -i "" "/Yoga/s/Yoga/yoga/g" ios/Podfile
+  if [ $rnSecondVersion -gt  ]; then
+    sed -i "" "s/BatchedBridge/CxxBridge/g" ios/Podfile
+    sed -i "" "s/jschelpers_legacy/jschelpers/g" ios/Podfile
+    sed -i "" "s/cxxreact_legacy/cxxreact/g" ios/Podfile
+  fi
+fi
+
 sed -i "" "/\'fego/s/fego/$projectname/g" ios/Podfile
+
 sed -i "" "s/index.ios/index/g;s/fego/$projectname/g" ios/$projectname/AppDelegate.m
 
 sed -i "" "/\'fego\'/s/fego/$projectname/g" index.js
